@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking</title>
     <!-- ======= Styles ====== -->
+   
     <link rel="stylesheet" href="../static/css/patientstyle.css">
     
 </head>
@@ -28,7 +29,7 @@
             
 
                 <li>
-                    <a href="Patient.html">
+                    <a href="Home.html" target="_blank"> 
                         <span class="icon">
                             <span title="Home" style="font-size: x-large;">
                                 <ion-icon name="home-outline"></ion-icon>
@@ -37,6 +38,18 @@
                         <span class="title">Home</span>
                     </a>
                 </li>
+
+                <li>
+                    <a href="Patient.html">
+                        <span class="icon">
+                            <span title="Profile" style="font-size: x-large;">
+                                <ion-icon name="person"></ion-icon>
+                              </span>
+                        </span>
+                        <span class="title">Profile</span>
+                    </a>
+                </li>
+
 
                 <li>
                     <a href="Perscription.html">
@@ -73,7 +86,7 @@
                 </li>
 
                 <li>
-                    <a href="https://calendar.google.com/calendar">
+                    <a href="https://calendar.google.com/calendar" target="_blank">
                         <span class="icon">
                             <span title="Your appointments" style="font-size: x-large;">
                                 <ion-icon name="time"></ion-icon>
@@ -115,59 +128,101 @@
                 </div>
              </div>
         <!-- =========================form ==================== -->
-        <div class="full-page">
-            <div class="form-box"> 
-                <a onclick="closeform()" ><i class="fa-solid fa-xmark"></i></a>
-            </form>
-            <form id='Booking' class='input-group-booking'>
-   
-               <!-- Name -->
-                <input type='text'class='input-field1' id="Last Name" placeholder='Last Name' >
-                <input type='text'class='input-field2' id="First Name" placeholder='First Name ' > 
-   
-               <!-- Mobile phone -->
-               <div>
-                <input type='number'class='input-field' id="Mobile_phone" placeholder='  Mobile Number ' >
+       
+         
+		    
+	    <div class="booking">
+            <div class="form">
+		 <form id="booking" class='input-group-register'>
+            <div class="Header1">
+                <h2>patient Informatio</h2>
+                
+            </div>
+
+                <!-- UserName -->
+            <div>
+                <input type='text'class='input-field' id="UserName" placeholder=' UserName' >
                 <span></span>
-               </div>
-               <!-- Email -->
-               <div>
-                <input type='text' id="Email"class='input-field'placeholder='  Email Address' >
-                <span></span>
-               </div>
-   
-               <!--Doctor name -->
-               <div>
-                <input type='text'class='input-field' id="Doctor name" placeholder=' Doctor name' >
-                <span></span>
-               </div>
-   
-   
-               <!-- Day -->
-               <div>
-                   <label for="dt">Day</label>
-                <input type="date" id="date"class="box" max="2022-06-11">
-                <span></span>
-               </div>
-   
-   
-               <!-- gender -->
-               <div>
+            </div>
+
+            <!-- Mobile phone -->
+            <div>
+             <input type='number'class='input-field' id="Mobile_phone" placeholder='  Mobile Number ' >
+             <span></span>
+            </div>
+
+            <!-- Email -->
+            <div>
+             <input type='text' id="Email"class='input-field'placeholder='  Email Address' >
+             <span></span>
+            </div>
+            
+            <!-- gender -->
+            <div>
                 <label2 for="dt"> Gender</label2>
                 <label class="form-control">
                 <input type="radio"id="Male" class="check" name="gender" value="Male"> Male
                 <input type="radio" id="Female" class="check2" name="gender" value="Female"> Female
                 <span></span>
-   
-               </label>
+  
+              </label>
+            </div>
+           
+            <div class="Header1">
+                <h2>appointment Informatio</h2>
+                
+            </div>
+               <!-----Doctor --- -->
+
+            <div class="select">       
+                <select name="doctors" id="doctors">
+                <option selected disabled >Select your doctro</option>
+                <option value="doctor1">doctor1</option>
+                <option value="doctor2" >doctor2 </option>
+                <option value="doctor3">doctor3</option>
+                <option value="doctor4">doctor4</option>
+                <option value="doctor5">doctor5</option>
+                <option value="doctor6">doctor6</option>
+                </select>
+                <div class="error"></div>
+               
+            </div>
+           
+                <!-- Day -->
+                <div>
+                   
+                    <input type="date" id="day"class="box" >
+                    <span></span>
                 </div>
-   
-                <button type='submit'class='submit-btn2'>Book</button>
-                </form>
-             </div>   
+            
+                <!--------- time --- --------->
+                
+            <div class="select">  
+                   
+                <select name="Time" id="Time">
+                <option selected disabled >Select Time</option>
+                <option value="1">8:9 am</option>
+                <option value="2">9:10  am </option>
+                <option value="3">10:11 am </option>
+                <option value="4">11:12 am</option>
+                <option value="5">12:1  pm</option>
+                <option value="6">1:2   pm</option>
+                <option value="7">3:4   pm</option>
+                <option value="8">2:3   pm</option>
+                </select>
+                <div class="error"></div>
+            </div>
+      
+             <button type='submit'class='submit-btn'>Book</button>
+	       </form>
+        </div>
+            
         </div>
 
-         </div>       
+    </div>
+
+
+      
 
                 
                     
