@@ -43,6 +43,7 @@ function validateForm(){
   else{
     clearerror(usernameInput);
   }
+  
   if(mobile_phoneInput.value.trim()==''){
     setError(mobile_phoneInput,"please enter your number");
   }
@@ -76,6 +77,9 @@ function validateForm(){
   
 }
 
+
+
+
 function setError(element,errorMessage){
     const parent=element.parentElement;
     parent.classList.add('error');
@@ -90,7 +94,6 @@ function isEmailValid(email){
   const reg =/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
   return reg.test(email)
 }
-
 
 
 

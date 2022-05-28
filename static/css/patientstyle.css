@@ -269,18 +269,17 @@ margin-left: 1%;
 }
 .input-field1{
 	width: 45%;
-    padding: 10px 0;
-    /* margin: 10px 0; */
-	margin-top: 6px;
+  padding: 10px 0;
+  margin-top: 6px;
 	margin-left: 50px;
-    border-left: 0;
-    border-top: 0;
-    border-right: 0;
-    border-bottom: 1px solid #999;
-    outline: none;
-    background: transparent;
-    color: var(--black);
-    padding-bottom: 1rem;
+  border-left: 0;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 1px solid #999;
+  outline: none;
+  background: transparent;
+  color: var(--black);
+   padding-bottom: 1rem;
 }
 .input-field2{
     padding: 10px 0;
@@ -378,6 +377,41 @@ margin-left: 50px;
 	outline:none;
 	background: #fff;
 	color:var(--red);
+}
+/* ====================== contact form ========================== */
+#contact{
+margin-right: 25rem;
+ margin-top:35rem;
+  display: block;
+  box-shadow: var(--black2);
+}
+ .contact .Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.contact h2 {
+  font-weight: 600;
+  color: var(--red);
+  margin-top:1rem;
+}
+#send
+{
+display: block;
+width:40%;
+cursor: pointer;
+display: block;
+margin-left:30rem ;
+margin-top: 1rem;
+height: 2rem;
+background: var(--red);
+border: 0;
+outline: none;
+border-radius: 30px;
+color: white;
+font-weight: 800;
+font-size: 15px;
+    
 }
 
 /* ====================== Responsive Design ========================== */
