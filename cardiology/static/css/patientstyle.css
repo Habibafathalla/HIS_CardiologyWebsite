@@ -1,0 +1,487 @@
+/* =========== Google Fonts ============ */
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+
+/* =============== Globals ============== */
+* {
+  font-family: "Ubuntu", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --red: #852126;
+  --white: #fff;
+  --gray: #f5f5f5;
+  --black1: #222;
+  --black2: #999;
+}
+
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+/* =============== Navigation ================ */
+.navigation {
+  position: fixed;
+  width: 300px;
+  height: 100%;
+  background: var(--red);
+  border-left: 10px solid var(--red);
+  transition: 0.5s;
+  overflow: hidden;
+}
+.navigation.active {
+  width: 80px;
+}
+
+.navigation ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.navigation ul li {
+  position: relative;
+  width: 100%;
+  list-style: none;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+}
+
+.navigation ul li:hover,
+.navigation ul li.hovered {
+  background-color: var(--white);
+}
+
+.navigation ul li:nth-child(1) {
+  margin-bottom: 40px;
+  pointer-events: none;
+}
+
+.navigation ul li a {
+  position: relative;
+  display: block;
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+  color: var(--white);
+}
+.navigation ul li:hover a,
+.navigation ul li.hovered a {
+  color: var(--red);
+}
+
+.navigation ul li a .icon {
+  position: relative;
+  display: block;
+  min-width: 60px;
+  height: 60px;
+  line-height: 75px;
+  text-align: center;
+}
+.navigation ul li a .icon ion-icon {
+  font-size: 1.75rem;
+  pointer-events: none;
+}
+
+.navigation ul li a .title {
+  position: relative;
+  display: block;
+  padding: 0 10px;
+  height: 60px;
+  line-height: 60px;
+  text-align: start;
+  white-space: nowrap;
+}
+
+/* --------- curve outside ---------- */
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px 35px 0 10px var(--white);
+  pointer-events: none;
+}
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px -35px 0 10px var(--white);
+  pointer-events: none;
+}
+
+/* ===================== Main ===================== */
+.main {
+  position: absolute;
+  width: calc(100% - 300px);
+  left: 300px;
+  min-height: 100vh;
+  background: var(--white);
+  transition: 0.5s;
+}
+.main.active {
+  width: calc(100% - 80px);
+  left: 80px;
+}
+
+.topbar {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.toggle {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  cursor: pointer;
+  }
+  /* ===================== informatio===================== */
+  .details {
+    position: relative;
+    width: 100%;
+    display: grid;
+    padding-right: 3.5rem;
+   padding-top: 36rem;  }
+  
+  .details .information {
+    position: relative;
+    display: grid;
+    min-height: 500px;
+    background: var(--white);
+    padding: 20px;
+    margin-top: 10 rem;
+
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    border-radius: 20px;
+  }
+  
+  .details .Header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .Header h2 {
+    font-weight: 600;
+    color: var(--red);
+  }
+   .information .btn {
+     size: 12px;
+    position: relative;
+    padding: 5px 10px;
+    margin-left: 180px;
+    background: var(--red);
+    text-decoration: none;
+    color: var(--white);
+    border-radius: 30px;
+  }
+  
+  /* ===================== Booking form===================== */
+#booking{
+  margin-left: 18rem;
+  margin-top: 5rem;
+  display: block;
+  border: #AE1E06;
+  border-radius: 30px;
+
+  box-shadow: var(--black2);
+}
+
+ .booking .Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.booking h2 {
+  font-weight: 600;
+  color: var(--red);
+  margin-top:1rem;
+}
+.submit-btn
+{
+display: none;
+width:15%;
+cursor: pointer;
+display: block;
+margin-left:25rem ;
+margin-top: 2rem;
+height: 2rem;
+background: var(--red);
+border: 0;
+outline: none;
+border-radius: 30px;
+color: white;
+font-weight: 800;
+    font-size: 15px;
+    
+}
+.input-group-register label
+{
+    font-weight: 500;
+    color:#757575;
+
+}
+
+.input-group-register label2
+{
+    font-weight: 500;
+    color:#757575;
+margin-left: 1%;
+    margin-right: 20%;
+}
+.input-field
+{
+	width: 100%;
+	padding:10px 0;
+	margin: 10px  0;
+	border-left:0;
+	border-top:0;
+	border-right:0;
+	border-bottom: 1px solid #999;
+	outline:none;
+	background: transparent;
+	color:var(--black);
+    padding-bottom: 1rem;
+}
+.input-field1{
+	width: 45%;
+  padding: 10px 0;
+  margin-top: 6px;
+	margin-left: 50px;
+  border-left: 0;
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 1px solid #999;
+  outline: none;
+  background: transparent;
+  color: var(--black);
+   padding-bottom: 1rem;
+}
+.input-field2{
+    padding: 10px 0;
+    margin-top: 6px;
+    float: left;
+    border-left: 0;
+    width: 38%;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid #999;
+    outline: none;
+    background: transparent;
+    color: var(--black);
+    padding-bottom: 1rem;
+     
+}
+.check-box
+{
+margin-left: 50px;
+    margin-top: 3rem;
+}
+
+.input-group-register span {
+  color: #AE1E06;
+  margin-top: 1px;
+  visibility: hidden;
+  }
+  #booking input {
+      font-size: 15;
+
+  }
+  
+  .error input{
+  border: 3px var(--red) solid;
+  
+  }
+  .error span{
+  visibility: visible;
+  }
+  select {
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    -ms-appearance:none;
+    appearance:none;
+    outline:0;
+    box-shadow:none;
+    border:0!important;
+    background:var(--white);
+    background-image: none;
+    flex: 1;
+    padding: 0.5rem;
+    color:var(--red);
+    cursor:pointer;
+    font-size: 1em;
+    
+     }
+     select::-ms-expand {
+    display: none;
+     }
+     .select {
+    position: relative;
+    display: flex;
+    width: 20em;
+    height: 2.5em;
+    line-height: 3;
+    background: #fff;
+    overflow: hidden;
+    border-radius: .25em;
+    border: var(--black1) solid;
+    margin-top:1rem;
+    
+     }
+     .select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1em;
+    background: var(--white);
+    cursor:pointer;
+    pointer-events:none;
+    transition:.25s all ease;
+     }
+     .select:hover::after {
+    color: var(--red);
+     }
+.box{
+  position: relative;
+	width: 41%;
+  height:40px ;
+  margin-top: 2.25rem;
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--black1);
+	outline:none;
+	background: #fff;
+	color:var(--red);
+}
+
+
+/* ====================== contact form ========================== */
+#contact{
+margin-right: 15rem;
+ margin-top:35rem;
+  display: block;
+  box-shadow: var(--black2);
+}
+ .contact .Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.contact h2 {
+  font-weight: 600;
+  color: var(--red);
+  margin-top:1rem;
+}
+#send
+{
+display: block;
+width:40%;
+cursor: pointer;
+display: block;
+margin-left:29rem ;
+
+height: 2rem;
+background: var(--red);
+border: 0;
+outline: none;
+border-radius: 30px;
+color: white;
+font-weight: 800;
+font-size: 15px;
+    
+}
+#message{
+  position: fixed;
+  width: 50%;
+}
+
+/* ====================== Responsive Design ========================== */
+@media (max-width: 991px) {
+  .navigation {
+    left: -300px;
+  }
+  .navigation.active {
+    width: 300px;
+    left: 0;
+  }
+  .main {
+    width: 100%;
+    left: 0;
+  }
+  .main.active {
+    left: 300px;
+  }
+  .cardBox {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .information {
+    grid-template-columns: 1fr;
+  }
+  .information {
+    overflow-x: auto;
+  }
+  .status.inProgress {
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardBox {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .Header h2 {
+    font-size: 20px;
+  }
+  .user {
+    min-width: 40px;
+  }
+  .navigation {
+    width: 100%;
+    left: -100%;
+    z-index: 1000;
+  }
+  .navigation.active {
+    width: 100%;
+    left: 0;
+  }
+  .toggle {
+    z-index: 10001;
+  }
+  .main.active .toggle {
+    color: #fff;
+    position: fixed;
+    right: 0;
+    left: initial;
+  }
+}
