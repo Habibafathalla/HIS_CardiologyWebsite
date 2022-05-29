@@ -368,16 +368,17 @@ margin-left: 50px;
      }
 .box{
 	width: 31%;
-    margin-top: 2.25rem;
-
-	margin-bottom: 20px;
-    padding-bottom: 5px;
-
-	border-bottom: 1px solid var(--black1);
+  height:40px ;
+  margin-top: 2.25rem;
+  margin-bottom: 20px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--black1);
 	outline:none;
 	background: #fff;
 	color:var(--red);
 }
+
+
 /* ====================== contact form ========================== */
 #contact{
 margin-right: 25rem;
