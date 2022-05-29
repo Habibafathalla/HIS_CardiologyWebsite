@@ -134,25 +134,23 @@
 		 <form id="contact" class='input-group-register'>
 
             <div class="Header1">
-                <h2>Your E-mail</h2>
+                <h2>Select your docrtor</h2>
                 
             </div>
 
-                     <!-- patient Email -->
-            <div>
-             <input type='text' id="Email1"class='input-field'placeholder='  Email Address' >
-             <span></span>
+            <div class="select">       
+                <select name="doctors" id="doctors">
+                <option selected disabled >Select your doctro</option>
+                <option value="doctor1">doctor1</option>
+                <option value="doctor2" >doctor2 </option>
+                <option value="doctor3">doctor3</option>
+                <option value="doctor4">doctor4</option>
+                <option value="doctor5">doctor5</option>
+                <option value="doctor6">doctor6</option>
+                </select>
+                <div class="error"></div>
+               
             </div>
-            
-                       
-            <div class="Header1">
-                <h2>Your doctor E-mail</h2>
-            </div>
-             <!-- Doctor Email -->
-              <div>
-                <input type='text' id="Email2"class='input-field'placeholder='  Email Address' >
-                 <span></span>
-                </div>
                        
                          
             <div class="Header1">
@@ -160,12 +158,12 @@
                 
             </div>
                       <!-- message -->
-                      <div>
-                        <input type='text' id="Message"class='input-field'placeholder='  Message' >
-                        <span></span>
-                       </div>
-                                 
-       
+                     
+                    <div>
+                       <textarea id="Message"  rows="20" cols="45" ></textarea>
+                     
+                       <span></span>
+                    </div>
       
              <button type='submit' id="send">Send</button>
 	       </form>

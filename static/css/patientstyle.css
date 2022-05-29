@@ -205,9 +205,12 @@ body {
   
   /* ===================== Booking form===================== */
 #booking{
-  margin-left: 2rem;
- 
+  margin-left: 18rem;
+  margin-top: 5rem;
   display: block;
+  border: #AE1E06;
+  border-radius: 30px;
+
   box-shadow: var(--black2);
 }
 
@@ -224,11 +227,11 @@ body {
 .submit-btn
 {
 display: none;
-width:10%;
+width:15%;
 cursor: pointer;
 display: block;
 margin-left:25rem ;
-margin-top: 1rem;
+margin-top: 2rem;
 height: 2rem;
 background: var(--red);
 border: 0;
@@ -367,7 +370,8 @@ margin-left: 50px;
     color: var(--red);
      }
 .box{
-	width: 31%;
+  position: relative;
+	width: 41%;
   height:40px ;
   margin-top: 2.25rem;
   margin-bottom: 20px;
@@ -381,7 +385,7 @@ margin-left: 50px;
 
 /* ====================== contact form ========================== */
 #contact{
-margin-right: 25rem;
+margin-right: 15rem;
  margin-top:35rem;
   display: block;
   box-shadow: var(--black2);
@@ -402,8 +406,8 @@ display: block;
 width:40%;
 cursor: pointer;
 display: block;
-margin-left:30rem ;
-margin-top: 1rem;
+margin-left:29rem ;
+
 height: 2rem;
 background: var(--red);
 border: 0;
@@ -413,6 +417,10 @@ color: white;
 font-weight: 800;
 font-size: 15px;
     
+}
+#message{
+  position: fixed;
+  width: 50%;
 }
 
 /* ====================== Responsive Design ========================== */

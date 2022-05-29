@@ -1,7 +1,6 @@
 const form_1 = document.querySelector('#contact')
 const messageInput = document.getElementById("Message");
-const emailInput_1 = document.querySelector('#Email1')
-const emailInput_2 = document.querySelector('#Email2')
+
 
 form_1.addEventListener('submit',(event)=>{
     event.preventDefault();
@@ -9,22 +8,6 @@ form_1.addEventListener('submit',(event)=>{
    })
    function validateForm_1(){
     
-    
-
-    if(isEmailValid(emailInput_1.value)){
-    clearerror(emailInput_1);
-    }
-    else{
-      setError(emailInput_1,"Enter Vaild Email");
-    }
-      
-  
-   if(isEmailValid(emailInput_2.value)){
-    clearerror(emailInput_2);
-    }
-    else{
-      setError(emailInput_2,"Enter Vaild Email");
-    }
     if(messageInput.value.trim()==''){
         setError(messageInput,"please enter a message");
       }
