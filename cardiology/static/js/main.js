@@ -59,7 +59,7 @@ function validateForm(){
   }
   else{
     clearerror(TimeInput);
-    return false;
+   return false;
   }
 
 }
