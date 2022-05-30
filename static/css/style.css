@@ -17,7 +17,7 @@ input[type=number]::-webkit-inner-spin-button,  input[type=number]::-webkit-oute
     width: 100%;
     height: 40vh;
     padding-left: 80px ;
-    background-image: url(../images/try1.png);
+    background-image: url(../images/home-banner-01-u.jpg);
     background-repeat:no-repeat;
     background-size: cover;
 }
@@ -33,7 +33,7 @@ body {
   overflow-x: hidden;
 }
 
-.full-page {
+.container {
   position: relative;
   width: 100%;
 }
@@ -497,6 +497,19 @@ select::-ms-expand {
   visibility: hidden;
 }
 
+.input-group-login span {
+  color: var(--red);
+  margin-top: 1px;
+  visibility: hidden;
+}
+
+.style {
+  color: var(--red);
+  margin-top: 1px;
+  visibility: hidden;
+  text-align: center;
+}
+
 #register div input {
   font-size: 15;
   color: var(--black1);
@@ -509,4 +522,30 @@ select::-ms-expand {
 
 .error span {
   visibility: visible;
+}
+.navigation ul li:hover a::before,
+.navigation ul li.hovered a::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px 35px 0 10px var(--white);
+  pointer-events: none;
+}
+.navigation ul li:hover a::after,
+.navigation ul li.hovered a::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: -50px;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: 35px -35px 0 10px var(--white);
+  pointer-events: none;
 }

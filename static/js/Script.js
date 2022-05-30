@@ -1,16 +1,18 @@
-const formb = document.querySelector('#form-box') 
+
 const form = document.querySelector('#register')
+const  form2=document.querySelector('#login')
 const usernameInput = document.getElementById("UserName");
 const F_NInput = document.querySelector('#First_Name')
 const L_NInput = document.querySelector('#Last_Name')
 const mobile_phoneInput = document.querySelector('#Mobile_phone')
 const emailInput = document.querySelector('#Email')
 const passwordInput = document.querySelector('#password')
-// const dateInput = document.querySelector('#date')
 const male=document.querySelector('#Male')
 const female=document.querySelector('#Female')
 const namesdiv=document.querySelector('#input-N') 
-// const date=document.querySelector('#date')
+const Stuff=document.querySelector('#Stuff') 
+var select=document.getElementById('#hf')
+
 
 
 var DOB=document.querySelector('#date')
@@ -29,10 +31,15 @@ var curdate=year+"-"+month+"-"+tdate
 DOB.max=curdate
 
 
+form2.addEventListener('submit',(event)=>{
+  event.preventDefault()
+  validationForm_2()
+  
+})
+
 
 
 form.addEventListener('submit',(event)=>{
- console.log( DOB.value)
  event.preventDefault();
   validateForm();
 })
@@ -90,6 +97,16 @@ function validateForm(){
   else{
     clearerror(male,"Select  your Gender")
   }
+  
+}
+function validationForm_2(){
+
+if(Stuff.value=="Select an Option"){
+  setError(hf,"Select Your job")
+}
+else{
+  clearerror(hf)
+}
 }
 
 function setError(element,errorMessage){
