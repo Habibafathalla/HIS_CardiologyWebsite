@@ -28,17 +28,21 @@ const day=document.querySelector('#day')
 
 
 form.addEventListener('submit',(event)=>{
-  event.preventDefault();
-   validateForm();
+  
+   if(validateForm()){
+    event.preventDefault();
+   }
  })
 
 function validateForm(){
   
   if(day.value.trim()==''){
     setError(day,"Selec day");
+    return true;
   }
   else{
     clearerror(day);
+    return false;
   }
 
   if(male.checked==false && female.checked==false){

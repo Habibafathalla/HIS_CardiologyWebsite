@@ -133,7 +133,7 @@
     
       <div class="booking">
             <div class="form">
-		 <form id="booking" class='input-group-register'>
+		 <form action ="{{ url_for('book_page') }}" method="post" id="booking" class='input-group-register' >
             
 
                <!-----Doctor --- -->
@@ -141,16 +141,17 @@
                 <h2>Appointment Information</h2>
                 
             </div>
-
+            {% if not flag %}
             <div class="select">       
                 <select name="doctors" id="doctors">
-                <option selected disabled >Select your doctro</option>
-                <option value="doctor1">doctor1</option>
-                <option value="doctor2" >doctor2 </option>
-                <option value="doctor3">doctor3</option>
-                <option value="doctor4">doctor4</option>
-                <option value="doctor5">doctor5</option>
-                <option value="doctor6">doctor6</option>
+                <option selected disabled >Select your doctor</option>
+                <!-- <option value="1">{{ docs[0].d_name }}</option> -->
+                {% for doctor in docs %}
+
+                <option value="{{ doctor.d_id }}">{{ doctor.d_name }}</option>
+
+                {% endfor %}
+
                 </select>
                 <div class="error"></div>
                
@@ -159,27 +160,32 @@
                 <!-- Day -->
                 <div>
                    
-                    <input type="date" id="day"class="box" >
+                    <input type="date" id="day"class="box" name='day'>
                     <span></span>
+
                 </div>
-            
+                {% endif %}
                 <!--------- time --- --------->
-                
-            <div class="select">  
+                {% if flag %}
+                <div class="select">  
                    
-                <select name="Time" id="Time">
-                <option selected disabled >Select Time</option>
-                <option value="1">8:9 am</option>
-                <option value="2">9:10  am </option>
-                <option value="3">10:11 am </option>
-                <option value="4">11:12 am</option>
-                <option value="5">12:1  pm</option>
-                <option value="6">1:2   pm</option>
-                <option value="7">3:4   pm</option>
-                <option value="8">2:3   pm</option>
-                </select>
-                <div class="error"></div>
-            </div>
+                    <select name="Time" id="Time">
+                    <option selected disabled >Select Time</option>
+                    <option value="9-00">9:00 am</option>
+                    <option value="9-30">9:30 am</option>
+                    <option value="10-00">10:00 am </option>
+                    <option value="10-30">10:30 am </option>
+                    <option value="11-00">11:00 am</option>
+                    <option value="11-30">11:30 am</option>
+                    <option value="12-00">12:00 pm</option>
+                    <option value="12-30">12:30 pm</option>
+                    <option value="1-00">1:00 pm</option>
+                    <option value="1-30">1:30 pm</option>
+                    </select>
+                    <div class="error"></div>
+                </div>
+                {% endif %}
+            
       
              <button type='submit'class='submit-btn'>Book</button>
 	       </form>

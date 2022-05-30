@@ -131,7 +131,7 @@
 		    
 	    <div class="contact">
             <div class="form_1">
-		 <form id="contact" class='input-group-register'>
+		 <form action = "{{ url_for('contact_page') }}" method="POST" id="contact" class='input-group-register'>
 
             <div class="Header1">
                 <h2>Select your docrtor</h2>
@@ -151,7 +151,8 @@
                 <div class="error"></div>
                
             </div>
-                       
+             
+            <button type='submit' id="send">Send</button>
                          
             <div class="Header1">
                 <h2>Your Message</h2>
@@ -160,12 +161,12 @@
                       <!-- message -->
                      
                     <div>
-                       <textarea id="Message"  rows="20" cols="45" ></textarea>
+                       <textarea id="Message"  rows="20" cols="45" name="c"></textarea>
                      
                        <span></span>
                     </div>
       
-             <button type='submit' id="send">Send</button>
+                    <button type="submit" class="btn btn-primary">Submit</button>
 	       </form>
         </div>
             
