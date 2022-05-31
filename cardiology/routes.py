@@ -19,9 +19,9 @@ medicl_record = 0
 @app.route('/')
 @app.route('/patient')
 def patient_page():
-    global p_user, t, f
+    global p_user,  f
     f = False
-    t = True
+    
     p_user = Patients.query.filter_by(p_id=1).first()
     return render_template('patient.html', user=p_user)
 
@@ -37,7 +37,7 @@ def home_page():
 
 @app.route('/book_appointment',  methods=['POST', 'GET'])
 def book_page():
-    global p_user, f, t, doc, day
+    global p_user, f, doc, day
     doctors = Doctors.query.all()
     
     if request.method == 'POST': 
@@ -49,18 +49,14 @@ def book_page():
         if f :
             f =False
             hour = request.form['Time']
-            p_time = parse_time(day, hour)
-            if p_time >= datetime.now():
-                appoint = Appointemets(p_id=p_user.p_id, p_name=p_user.p_name, d_name = doc.d_name, d_id = doc.d_id, appointemet=p_time)
-                db.session.add(appoint)
-                db.session.commit()
-                return render_template('booking.html', user=p_user, docs=doctors, flag=f , t=t)
+            p_time = parse_time(day, hour)        
+            appoint = Appointemets(p_id=p_user.p_id, p_name=p_user.p_name, d_name = doc.d_name, d_id = doc.d_id, appointemet=p_time)
+            db.session.add(appoint)
+            db.session.commit()
+            return render_template('booking.html', user=p_user, docs=doctors, flag=f , t=t)
         else:
             f = True
         
-        
-
-
     return render_template('booking.html', user=p_user, docs=doctors, flag=f , t=t)
 
 
