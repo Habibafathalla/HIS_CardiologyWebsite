@@ -1,172 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medical record</title>
-    <!-- ======= Styles ====== -->
-    <link rel="stylesheet"  href="../static/css/patientstyle.css">
-</head>
-
-<body>
-    <!-- =============== Navigation ================ -->
-    <div class="container">
-        <div class="navigation">
-            <ul>
-                <li>
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="heart"></ion-icon>
-                        </span>
-                        <span class="title">{{ user.p_name }}</span>
-                    </a>
-                </li>
-
-
-                <li>
-                    <a href="{{ url_for('home_page') }}" target="_blank"> 
-                        <span class="icon">
-                            <span title="Home" style="font-size: x-large;">
-                                <ion-icon name="home-outline"></ion-icon>
-                              </span>
-                        </span>
-                        <span class="title">Home</span>
-                    </a>
-                </li>
-
-            
-
-                <li>
-                    <a href="{{ url_for('patient_page') }}">
-                        <span class="icon">
-                            <span title="Profile" style="font-size: x-large;">
-                                <ion-icon name="person"></ion-icon>
-                              </span>
-                        </span>
-                        <span class="title">Profile</span>
-                    </a>
-                </li>
-
-
-                <li>
-                    <a href="{{ url_for('Perscription_page') }}">
-                        <span class="icon">
-                            <span title="Your perscription" style="font-size: x-large;">
-                                <ion-icon name="clipboard"></ion-icon>
-                            </span>
-
-                        </span>
-                        <span class="title">Prescription</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="{{ url_for('medical_records_page') }}">
-                        <span class="icon">
-                            <span title="Your history" style="font-size: x-large;">
-                                <ion-icon name="albums"></ion-icon>
-                             </span>
-                        </span>
-                        <span class="title">Medical record</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="{{ url_for('book_page') }}">
-                        <span class="icon">
-                            <span title="Book now" style="font-size: x-large;">
-                                <ion-icon name="bookmark"></ion-icon>
-                             </span>
-                        </span>
-                        <span class="title">Book appointment</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="https://calendar.google.com/calendar"  target="_blank">
-                        <span class="icon">
-                            <span title="Your appointments" style="font-size: x-large;">
-                                <ion-icon name="time"></ion-icon>
-                             </span>
-                        </span>
-                        <span class="title">Reserved appointments</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="{{ url_for('contact_page') }}">
-                        <span class="icon">
-                         <span title="Contact your doctor" style="font-size: x-large;">
-                            <ion-icon name="chatbubbles"></ion-icon>
-                         </span>
-                        </span>
-                        <span class="title">Contact your doctor</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        <span class="icon">
-                            <span title="log out" style="font-size: x-large;">
-                                <ion-icon name="log-out-outline"></ion-icon>
-                             </span>
-                        </span>
-                        <span class="title">Log Out</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-
-        <!-- ========================= Main ==================== -->
-        <div class="subheader">
+{% extends 'Template.html' %}
+{% block content %}
+<title>Medical record</title>
+ <!-- =========================information ==================== -->
+ <div class="details">
+    <div class="information">
+        <div class="Header">
+            <h2>Medical record</h2>
             
         </div>
-        <div class="main">
-            <div class="topbar">
-                <div class="toggle">
-                    <ion-icon name="menu-outline"></ion-icon>
-                </div>
-                 <!-- =========================information ==================== -->
-                <div class="details">
-                    <div class="information">
-                        <div class="Header">
-                            <h2>Medical record</h2>
-                            
-                        </div>
-                        
-                        <div >
-                            <h1 >Diagnosis</h1>
-                            <label for="name">{{record.diagnosis}}</label>
-                            
-                        </div>
-                        <div>
-                            <h1>Diseases history</h1>
-                            <label  for="id">{{record.diseases_history}}</label> 
-                        </div>
-                        <div>
-                            <h1>Restricted drugs</h1>
-                            <label for="e-mail">{{record.restricted_drugs}}</label> 
-                        </div>
-                       
-                       
-                        
-                    </div>
-                    
-                    
-           </div>
-
         
+        <div >
+            <h1 >Diagnosis</h1>
+            <label for="name">{{record.diagnosis}}</label>
+            
+        </div>
+        <div>
+            <h1>Diseases history</h1>
+            <label  for="id">{{record.diseases_history}}</label> 
+        </div>
+        <div>
+            <h1>Restricted drugs</h1>
+            <label for="e-mail">{{record.restricted_drugs}}</label> 
+        </div>
+    
     </div>
+ 
+</div>
 
-    <!-- =========== Scripts =========  -->
-    <script src="../static/js/main.js"></script>
+</div>
 
-    <!-- ====== ionicons ======= -->
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-</body>
-
-</html>
+{% endblock %}
+                

@@ -1,231 +1,83 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking</title>
-    <!-- ======= Styles ====== -->
-   
-    <link rel="stylesheet" href="../static/css/patientstyle.css">
-    
-</head>
-
-<body>
-    <!-- =============== Navigation ================ -->
-   
-  
- 
-    <div class="container">
-        <div class="navigation">
-            <ul>
-                <li>
-                    <a href="#">
-                        <span class="icon">
-                            <ion-icon name="heart"></ion-icon>
-                        </span>
-                        <span class="title">{{ user.p_name }}</span>
-                    </a>
-                </li>
-
-
-                <li>
-                    <a href="{{ url_for('home_page') }}" target="_blank"> 
-                        <span class="icon">
-                            <span title="Home" style="font-size: x-large;">
-                                <ion-icon name="home-outline"></ion-icon>
-                              </span>
-                        </span>
-                        <span class="title">Home</span>
-                    </a>
-                </li>
-
-            
-
-                <li>
-                    <a href="{{ url_for('patient_page') }}">
-                        <span class="icon">
-                            <span title="Profile" style="font-size: x-large;">
-                                <ion-icon name="person"></ion-icon>
-                              </span>
-                        </span>
-                        <span class="title">Profile</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="{{ url_for('Perscription_page') }}">
-                        <span class="icon">
-                            <span title="Your perscription" style="font-size: x-large;">
-                                <ion-icon name="clipboard"></ion-icon>
-                            </span>
-
-                        </span>
-                        <span class="title">Prescription</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="{{ url_for('medical_records_page') }}">
-                        <span class="icon">
-                            <span title="Your history" style="font-size: x-large;">
-                                <ion-icon name="albums"></ion-icon>
-                             </span>
-                        </span>
-                        <span class="title">Medical record</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="{{ url_for('book_page') }}">
-                        <span class="icon">
-                            <span title="Book now" style="font-size: x-large;">
-                                <ion-icon name="bookmark"></ion-icon>
-                             </span>
-                        </span>
-                        <span class="title">Book appointment</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="https://calendar.google.com/calendar" target="_blank">
-                        <span class="icon">
-                            <span title="Your appointments" style="font-size: x-large;">
-                                <ion-icon name="time"></ion-icon>
-                             </span>
-                        </span>
-                        <span class="title">Reserved appointments</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="{{ url_for('contact_page') }}">
-                        <span class="icon">
-                         <span title="Contact your doctor" style="font-size: x-large;">
-                            <ion-icon name="chatbubbles"></ion-icon>
-                         </span>
-                        </span>
-                        <span class="title">Contact your doctor</span>
-                    </a>
-                </li>
-
-                <li>
-                    <a href="#">
-                        <span class="icon">
-                            <span title="log out" style="font-size: x-large;">
-                                <ion-icon name="log-out-outline"></ion-icon>
-                             </span>
-                        </span>
-                        <span class="title">Log Out</span>
-                    </a>
-                </li>
-            </ul>
-        </div>
-
-        <!-- ========================= Main ==================== -->
-        <div class="subheader">
-            
-        </div>
-        <div class="main">
-            <div class="topbar">
-                <div class="toggle">
-                    <ion-icon name="menu-outline"></ion-icon>
-                </div>
-             </div>
-       <!-- =========================form ==================== -->
-       
-   
-    
-      <div class="booking">
-            <div class="form">
-		 <form action ="{{ url_for('book_page') }}" method="post" id="booking" class='input-group-register' >
-            
-
-               <!-----Doctor --- -->
-               <div class="Header1">
-                <h2>Appointment Information</h2>
-                
-            </div>
-            {% if not flag %}
-            <div>
-            <div class="select" id="hf">       
-                <select name="doctors" id="doctors">
-                <option selected disabled >Select your doctor</option>
-                <!-- <option value="1">{{ docs[0].d_name }}</option> -->
-                {% for doctor in docs %}
-
-                <option value="{{ doctor.d_id }}">{{ doctor.d_name }}</option>
-
-                {% endfor %}
-
-                </select>
-            </div>
-               <br><span></span>
-            </div>
-           
-                <!-- Day -->
-                <div>
-                   
-                    <input type="date" id="day"class="box" name='day'>
-                   <br> <span></span>
-
-                </div>
-                {% endif %}
-                <!--------- time --- --------->
-                {% if flag %}
-                <div>
-                <div class="select" id="df">  
-                   
-                    <select name="Time" id="Time">
-                    <option selected disabled >Select Time</option>
-                    <option value="9-00">9:00 am</option>
-                    <option value="9-30">9:30 am</option>
-                    <option value="10-00">10:00 am </option>
-                    <option value="10-30">10:30 am </option>
-                    <option value="11-00">11:00 am</option>
-                    <option value="11-30">11:30 am</option>
-                    <option value="12-00">12:00 pm</option>
-                    <option value="12-30">12:30 pm</option>
-                    <option value="1-00">1:00 pm</option>
-                    <option value="1-30">1:30 pm</option>
-                    </select>
-                </div>
-                <br><span></span>
-                </div>
-                {% endif %}
-            
+{% extends 'Template.html' %}
+{% block content %}
+<title>Booking form</title>
+<!-- =========================form ==================== -->
       
-             <button type='submit'class='submit-btn'>Book</button>
-	       </form>
-        </div>
-            
-        </div>
 
+<div class="booking">
+    <div class="form">
+ <form action ="{{ url_for('book_page') }}" method="post" id="booking" class='input-group-register' >
+    
+
+       <!-----Doctor --- -->
+       <div class="Header1">
+        <h2>Appointment Information</h2>
+        
     </div>
+    {% if not flag %}
+    <div>
+    <div class="select" id="hf">       
+        <select name="doctors" id="doctors">
+        <option selected disabled >Select your doctor</option>
+        <!-- <option value="1">{{ docs[0].d_name }}</option> -->
+        {% for doctor in docs %}
+
+        <option value="{{ doctor.d_id }}">{{ doctor.d_name }}</option>
+
+        {% endfor %}
+
+        </select>
+    </div>
+       <br><span></span>
+    </div>
+   
+        <!-- Day -->
+        <div>
+           
+            <input type="date" id="day"class="box" name='day'>
+           <br> <span></span>
+
+        </div>
+        {% endif %}
+        <!--------- time --- --------->
+        {% if flag %}
+        <div>
+        <div class="select" id="df">  
+           
+            <select name="Time" id="Time">
+            <option selected disabled >Select Time</option>
+            <option value="9-00">9:00 am</option>
+            <option value="9-30">9:30 am</option>
+            <option value="10-00">10:00 am </option>
+            <option value="10-30">10:30 am </option>
+            <option value="11-00">11:00 am</option>
+            <option value="11-30">11:30 am</option>
+            <option value="12-00">12:00 pm</option>
+            <option value="12-30">12:30 pm</option>
+            <option value="1-00">1:00 pm</option>
+            <option value="1-30">1:30 pm</option>
+            </select>
+        </div>
+        <br><span></span>
+        </div>
+        {% endif %}
+    
+
+     <button type='submit'class='submit-btn'>Book</button>
+   </form>
+</div>
+    
+</div>
+
+</div>
+
+{% endblock %}
 
 
+       
+      
       
 
                 
                     
-            
-  </body>
-</html>
-            
-                     
-           
-
-        
  
-
-    <!-- =========== Scripts =========  -->
-    <script src="../static/js/main.js"></script>
-
-    <!-- ====== ionicons ======= -->
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-</body>
-
-</html>

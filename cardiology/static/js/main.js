@@ -36,22 +36,26 @@ form.addEventListener('submit',(event)=>{
    }
   })
 function validateForm(){
+  var flag = false;
+  try{
   if(doctors.value=='Select your doctor'){
     setError(doctorInput,"Please select your doctor");
-    return true;
+    flag = true;
   }
   else{
     clearerror(doctorInput);
-    return false;
+    
   }
   if(day.value.trim()==''){
     setError(day,"Select day");
-    return true;
+    flag = true;
   }
   else{
     clearerror(day);
-    return false;
+    
   }
+  return flag}
+  catch{
   if(Time.value=='Select Time'){
     setError(TimeInput,"Please select Time");
     return true;
@@ -60,7 +64,7 @@ function validateForm(){
   else{
     clearerror(TimeInput);
    return false;
-  }
+  }}
 
 }
 
