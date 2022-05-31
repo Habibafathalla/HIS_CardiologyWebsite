@@ -31,18 +31,13 @@ const doctorInput = document.getElementById("hf");
 
 
 form.addEventListener('submit',(event)=>{
-  try {
   if (validateForm()){
     event.preventDefault();
-   }}
-   catch(err) {
-   if (validation2()){
-    event.preventDefault();
-   }}
+   }
   })
 function validateForm(){
   var flag = false;
-
+  try{
   if(doctors.value=='Select your doctor'){
     setError(doctorInput,"Please select your doctor");
     flag = true;
@@ -54,26 +49,24 @@ function validateForm(){
   if(day.value.trim()==''){
     setError(day,"Select day");
     flag = true;
-    
   }
   else{
     clearerror(day);
     
   }
-  return flag
-}
-  function validation2(){
+  return flag}
+  catch{
   if(Time.value=='Select Time'){
     setError(TimeInput,"Please select Time");
-    return true
+    return true;
     
   }
   else{
     clearerror(TimeInput);
-    return false
-  }
-}
+   return false;
+  }}
 
+}
 
 
 
