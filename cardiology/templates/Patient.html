@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact your doctor</title>
+    <title>Patient profile</title>
     <!-- ======= Styles ====== -->
-    <link rel="stylesheet" href="../static/css/patientstyle.css">
+    <link rel="stylesheet"  href="../static/css/patientstyle.css">
 </head>
 
 <body>
@@ -20,14 +20,13 @@
                         <span class="icon">
                             <ion-icon name="heart"></ion-icon>
                         </span>
-                        <span class="title">Our Name</span>
+                        <span class="title">{{ user.p_name }}</span>
                     </a>
                 </li>
 
-            
 
                 <li>
-                    <a href="Home.html" target="_blank"> 
+                    <a href="{{ url_for('home_page') }}" target="_blank"> 
                         <span class="icon">
                             <span title="Home" style="font-size: x-large;">
                                 <ion-icon name="home-outline"></ion-icon>
@@ -37,8 +36,10 @@
                     </a>
                 </li>
 
+            
+
                 <li>
-                    <a href="Patient.html">
+                    <a href="{{ url_for('patient_page') }}">
                         <span class="icon">
                             <span title="Profile" style="font-size: x-large;">
                                 <ion-icon name="person"></ion-icon>
@@ -48,9 +49,8 @@
                     </a>
                 </li>
 
-
                 <li>
-                    <a href="Perscription.html">
+                    <a href="{{ url_for('Perscription_page') }}">
                         <span class="icon">
                             <span title="Your perscription" style="font-size: x-large;">
                                 <ion-icon name="clipboard"></ion-icon>
@@ -62,7 +62,7 @@
                 </li>
 
                 <li>
-                    <a href="MedicalRecord.html">
+                    <a href="{{ url_for('medical_records_page') }}">
                         <span class="icon">
                             <span title="Your history" style="font-size: x-large;">
                                 <ion-icon name="albums"></ion-icon>
@@ -73,7 +73,7 @@
                 </li>
 
                 <li>
-                    <a href="Booking.html">
+                    <a href="{{ url_for('book_page') }}">
                         <span class="icon">
                             <span title="Book now" style="font-size: x-large;">
                                 <ion-icon name="bookmark"></ion-icon>
@@ -84,7 +84,7 @@
                 </li>
 
                 <li>
-                    <a href="https://calendar.google.com/calendar" target="_blank">
+                    <a href="https://calendar.google.com/calendar"  target="_blank">
                         <span class="icon">
                             <span title="Your appointments" style="font-size: x-large;">
                                 <ion-icon name="time"></ion-icon>
@@ -95,7 +95,7 @@
                 </li>
 
                 <li>
-                    <a href="contact.html">
+                    <a href="{{ url_for('contact_page') }}">
                         <span class="icon">
                          <span title="Contact your doctor" style="font-size: x-large;">
                             <ion-icon name="chatbubbles"></ion-icon>
@@ -119,75 +119,56 @@
         </div>
 
         <!-- ========================= Main ==================== -->
+        <div class="subheader">
+            
+        </div>
         <div class="main">
             <div class="topbar">
                 <div class="toggle">
                     <ion-icon name="menu-outline"></ion-icon>
-
                 </div>
-
-                <!-- =========================form ==================== -->
-                
-		    
-	    <div class="contact">
-            <div class="form_1">
-		 <form id="contact" class='input-group-register'>
-
-            <div class="Header1">
-                <h2>Select your docrtor</h2>
-                
-            </div>
-
-            <div class="select">       
-                <select name="doctors" id="doctors">
-                <option selected disabled >Select your doctro</option>
-                <option value="doctor1">doctor1</option>
-                <option value="doctor2" >doctor2 </option>
-                <option value="doctor3">doctor3</option>
-                <option value="doctor4">doctor4</option>
-                <option value="doctor5">doctor5</option>
-                <option value="doctor6">doctor6</option>
-                </select>
-                <div class="error"></div>
-               
-            </div>
-                       
-                         
-            <div class="Header1">
-                <h2>Your Message</h2>
-                
-            </div>
-                      <!-- message -->
-                     
-                    <div>
-                       <textarea id="Message"  rows="20" cols="45" ></textarea>
-                     
-                       <span></span>
+                 <!-- =========================information ==================== -->
+                <div class="details">
+                    <div class="information">
+                        <div class="Header">
+                            <h2>Personal Information</h2>
+                            
+                        </div>
+                        
+                        <div >
+                            <h1 >Name</h1>
+                            <label for="name">{{ user.p_name }}</label>
+                            
+                        </div>
+                        <div>
+                            <h1>ID</h1>
+                            <label  for="id">{{ user.p_id }}</label> 
+                        </div>
+                        <div>
+                            <h1>e-mail</h1>
+                            <label for="e-mail">{{ user.p_email }}</label> 
+                        </div>
+                        <div>
+                            <h1>Phone Number</h1>
+                            <label for="appointmenr">{{ user.p_phone }}</label> 
+                        </div>
+    
+                        <div class="app">
+                            <h1>Next appointment</h1>
+                            <label for="appointmenr">next appointment</label> 
+                            <a href="https://calendar.google.com/calendar" class="btn" target="_blank">View All</a>
+                        </div>
+    
+                        
                     </div>
-      
-             <button type='submit' id="send">Send</button>
-	       </form>
-        </div>
-            
-        </div>
-         
-		    
-	   
-               
-          
-      
-      
-            
-        </div>
- 
-           
+           </div>
 
         
     </div>
 
     <!-- =========== Scripts =========  -->
-    <script src="../static/js/contactf.js"></script>
     <script src="../static/js/main.js"></script>
+
     <!-- ====== ionicons ======= -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">

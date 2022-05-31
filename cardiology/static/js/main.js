@@ -21,33 +21,47 @@ toggle.onclick = function () {
 };
  
 // Booking form
-const form = document.querySelector('#booking')
 
-const dateInput = document.querySelector('#day')
+const form = document.querySelector('#booking')
 const day=document.querySelector('#day')
+const doctors = document.querySelector('#doctors')
+const Time = document.querySelector('#Time')
+const TimeInput = document.getElementById("df");
+const doctorInput = document.getElementById("hf");
 
 
 form.addEventListener('submit',(event)=>{
-  event.preventDefault();
-   validateForm();
- })
-
+  if (validateForm()){
+    event.preventDefault();
+   }
+  })
 function validateForm(){
-  
+  if(doctors.value=='Select your doctor'){
+    setError(doctorInput,"Please select your doctor");
+    return true;
+  }
+  else{
+    clearerror(doctorInput);
+    return false;
+  }
   if(day.value.trim()==''){
-    setError(day,"Selec day");
+    setError(day,"Select day");
+    return true;
   }
   else{
     clearerror(day);
+    return false;
   }
-
-  if(male.checked==false && female.checked==false){
-    setError(male,"Select  your Gender")
+  if(Time.value=='Select Time'){
+    setError(TimeInput,"Please select Time");
+    return true;
+    
   }
   else{
-    clearerror(male,"Select  your Gender")
+    clearerror(TimeInput);
+   return false;
   }
-  
+
 }
 
 
@@ -67,6 +81,21 @@ function isEmailValid(email){
   const reg =/^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
   return reg.test(email)
 }
+// input date validation
+var DOB=document.querySelector('#day')
+var date=new Date()
+var tdate=date.getDate()
+var month=date.getMonth()+1
+
+if(tdate<10){
+  tdate="0"+tdate
+}
+if(month<10){
+  month="0"+month
+}
+var year=date.getUTCFullYear()
+var curdate=year+"-"+month+"-"+tdate
+DOB.min=curdate
 
 
 

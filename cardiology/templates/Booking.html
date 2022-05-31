@@ -5,13 +5,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patient profile</title>
+    <title>Booking</title>
     <!-- ======= Styles ====== -->
-    <link rel="stylesheet"  href="../static/css/patientstyle.css">
+   
+    <link rel="stylesheet" href="../static/css/patientstyle.css">
+    
 </head>
 
 <body>
     <!-- =============== Navigation ================ -->
+   
+  
+ 
     <div class="container">
         <div class="navigation">
             <ul>
@@ -20,14 +25,13 @@
                         <span class="icon">
                             <ion-icon name="heart"></ion-icon>
                         </span>
-                        <span class="title">Our Name</span>
+                        <span class="title">{{ user.p_name }}</span>
                     </a>
                 </li>
 
-            
-            
+
                 <li>
-                    <a href="Home.html" target="_blank"> 
+                    <a href="{{ url_for('home_page') }}" target="_blank"> 
                         <span class="icon">
                             <span title="Home" style="font-size: x-large;">
                                 <ion-icon name="home-outline"></ion-icon>
@@ -37,8 +41,10 @@
                     </a>
                 </li>
 
+            
+
                 <li>
-                    <a href="Patient.html">
+                    <a href="{{ url_for('patient_page') }}">
                         <span class="icon">
                             <span title="Profile" style="font-size: x-large;">
                                 <ion-icon name="person"></ion-icon>
@@ -49,7 +55,7 @@
                 </li>
 
                 <li>
-                    <a href="Perscription.html">
+                    <a href="{{ url_for('Perscription_page') }}">
                         <span class="icon">
                             <span title="Your perscription" style="font-size: x-large;">
                                 <ion-icon name="clipboard"></ion-icon>
@@ -61,7 +67,7 @@
                 </li>
 
                 <li>
-                    <a href="MedicalRecord.html">
+                    <a href="{{ url_for('medical_records_page') }}">
                         <span class="icon">
                             <span title="Your history" style="font-size: x-large;">
                                 <ion-icon name="albums"></ion-icon>
@@ -72,7 +78,7 @@
                 </li>
 
                 <li>
-                    <a href="Booking.html">
+                    <a href="{{ url_for('book_page') }}">
                         <span class="icon">
                             <span title="Book now" style="font-size: x-large;">
                                 <ion-icon name="bookmark"></ion-icon>
@@ -94,7 +100,7 @@
                 </li>
 
                 <li>
-                    <a href="contact.html">
+                    <a href="{{ url_for('contact_page') }}">
                         <span class="icon">
                          <span title="Contact your doctor" style="font-size: x-large;">
                             <ion-icon name="chatbubbles"></ion-icon>
@@ -118,40 +124,100 @@
         </div>
 
         <!-- ========================= Main ==================== -->
+        <div class="subheader">
+            
+        </div>
         <div class="main">
             <div class="topbar">
                 <div class="toggle">
                     <ion-icon name="menu-outline"></ion-icon>
                 </div>
-                 <!-- =========================information ==================== -->
-                <div class="details">
-                    <div class="information">
-                        <div class="Header">
-                            <h2>Prescription</h2>
-                            
-                        </div>
-                        
-                        <div >
-                            <h1 >Doctor name</h1>
-                            <label for="name">doctor name</label>
-                            
-                        </div>
-                        <div>
-                            <h1>Appointment date</h1>
-                            <label  for="id">appointment date</label> 
-                        </div>
-                        <div>
-                            <h1>Medicine</h1>
-                            <label for="e-mail">medicine</label> 
-                        </div>
-                        
+             </div>
+       <!-- =========================form ==================== -->
+       
+   
     
-                        
-                    </div>
-           </div>
+      <div class="booking">
+            <div class="form">
+		 <form action ="{{ url_for('book_page') }}" method="post" id="booking" class='input-group-register' >
+            
+
+               <!-----Doctor --- -->
+               <div class="Header1">
+                <h2>Appointment Information</h2>
+                
+            </div>
+            {% if not flag %}
+            <div>
+            <div class="select" id="hf">       
+                <select name="doctors" id="doctors">
+                <option selected disabled >Select your doctor</option>
+                <!-- <option value="1">{{ docs[0].d_name }}</option> -->
+                {% for doctor in docs %}
+
+                <option value="{{ doctor.d_id }}">{{ doctor.d_name }}</option>
+
+                {% endfor %}
+
+                </select>
+            </div>
+               <br><span></span>
+            </div>
+           
+                <!-- Day -->
+                <div>
+                   
+                    <input type="date" id="day"class="box" name='day'>
+                   <br> <span></span>
+
+                </div>
+                {% endif %}
+                <!--------- time --- --------->
+                {% if flag %}
+                <div>
+                <div class="select" id="df">  
+                   
+                    <select name="Time" id="Time">
+                    <option selected disabled >Select Time</option>
+                    <option value="9-00">9:00 am</option>
+                    <option value="9-30">9:30 am</option>
+                    <option value="10-00">10:00 am </option>
+                    <option value="10-30">10:30 am </option>
+                    <option value="11-00">11:00 am</option>
+                    <option value="11-30">11:30 am</option>
+                    <option value="12-00">12:00 pm</option>
+                    <option value="12-30">12:30 pm</option>
+                    <option value="1-00">1:00 pm</option>
+                    <option value="1-30">1:30 pm</option>
+                    </select>
+                </div>
+                <br><span></span>
+                </div>
+                {% endif %}
+            
+      
+             <button type='submit'class='submit-btn'>Book</button>
+	       </form>
+        </div>
+            
+        </div>
+
+    </div>
+
+
+      
+
+                
+                    
+            
+  </body>
+</html>
+            
+                     
+           
 
         
-    </div>
+ 
 
     <!-- =========== Scripts =========  -->
     <script src="../static/js/main.js"></script>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patient profile</title>
+    <title>Medical record</title>
     <!-- ======= Styles ====== -->
     <link rel="stylesheet"  href="../static/css/patientstyle.css">
 </head>
@@ -20,14 +20,13 @@
                         <span class="icon">
                             <ion-icon name="heart"></ion-icon>
                         </span>
-                        <span class="title">Our Name</span>
+                        <span class="title">{{ user.p_name }}</span>
                     </a>
                 </li>
 
-            
-            
+
                 <li>
-                    <a href="Home.html" target="_blank"> 
+                    <a href="{{ url_for('home_page') }}" target="_blank"> 
                         <span class="icon">
                             <span title="Home" style="font-size: x-large;">
                                 <ion-icon name="home-outline"></ion-icon>
@@ -37,8 +36,10 @@
                     </a>
                 </li>
 
+            
+
                 <li>
-                    <a href="Patient.html">
+                    <a href="{{ url_for('patient_page') }}">
                         <span class="icon">
                             <span title="Profile" style="font-size: x-large;">
                                 <ion-icon name="person"></ion-icon>
@@ -48,8 +49,9 @@
                     </a>
                 </li>
 
+
                 <li>
-                    <a href="Perscription.html">
+                    <a href="{{ url_for('Perscription_page') }}">
                         <span class="icon">
                             <span title="Your perscription" style="font-size: x-large;">
                                 <ion-icon name="clipboard"></ion-icon>
@@ -61,7 +63,7 @@
                 </li>
 
                 <li>
-                    <a href="MedicalRecord.html">
+                    <a href="{{ url_for('medical_records_page') }}">
                         <span class="icon">
                             <span title="Your history" style="font-size: x-large;">
                                 <ion-icon name="albums"></ion-icon>
@@ -72,7 +74,7 @@
                 </li>
 
                 <li>
-                    <a href="Booking.html">
+                    <a href="{{ url_for('book_page') }}">
                         <span class="icon">
                             <span title="Book now" style="font-size: x-large;">
                                 <ion-icon name="bookmark"></ion-icon>
@@ -83,7 +85,7 @@
                 </li>
 
                 <li>
-                    <a href="https://calendar.google.com/calendar" target="_blank">
+                    <a href="https://calendar.google.com/calendar"  target="_blank">
                         <span class="icon">
                             <span title="Your appointments" style="font-size: x-large;">
                                 <ion-icon name="time"></ion-icon>
@@ -94,7 +96,7 @@
                 </li>
 
                 <li>
-                    <a href="contact.html">
+                    <a href="{{ url_for('contact_page') }}">
                         <span class="icon">
                          <span title="Contact your doctor" style="font-size: x-large;">
                             <ion-icon name="chatbubbles"></ion-icon>
@@ -118,6 +120,9 @@
         </div>
 
         <!-- ========================= Main ==================== -->
+        <div class="subheader">
+            
+        </div>
         <div class="main">
             <div class="topbar">
                 <div class="toggle">
@@ -127,36 +132,29 @@
                 <div class="details">
                     <div class="information">
                         <div class="Header">
-                            <h2>Personal Information</h2>
+                            <h2>Medical record</h2>
                             
                         </div>
                         
                         <div >
-                            <h1 >Name</h1>
-                            <label for="name">Patient name</label>
+                            <h1 >Diagnosis</h1>
+                            <label for="name">{{record.diagnosis}}</label>
                             
                         </div>
                         <div>
-                            <h1>ID</h1>
-                            <label  for="id">Patient ID</label> 
+                            <h1>Diseases history</h1>
+                            <label  for="id">{{record.diseases_history}}</label> 
                         </div>
                         <div>
-                            <h1>e-mail</h1>
-                            <label for="e-mail">Patient e-mail</label> 
+                            <h1>Restricted drugs</h1>
+                            <label for="e-mail">{{record.restricted_drugs}}</label> 
                         </div>
-                        <div>
-                            <h1>Phone Number</h1>
-                            <label for="appointmenr">patient number</label> 
-                        </div>
-    
-                        <div class="app">
-                            <h1>Next appointment</h1>
-                            <label for="appointmenr">next appointment</label> 
-                            <a href="https://calendar.google.com/calendar" class="btn" target="_blank">View All</a>
-                        </div>
-    
+                       
+                       
                         
                     </div>
+                    
+                    
            </div>
 
         
