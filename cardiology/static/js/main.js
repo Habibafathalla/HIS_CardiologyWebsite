@@ -31,38 +31,49 @@ const doctorInput = document.getElementById("hf");
 
 
 form.addEventListener('submit',(event)=>{
+  try {
   if (validateForm()){
     event.preventDefault();
-   }
+   }}
+   catch(err) {
+   if (validation2()){
+    event.preventDefault();
+   }}
   })
 function validateForm(){
+  var flag = false;
+
   if(doctors.value=='Select your doctor'){
     setError(doctorInput,"Please select your doctor");
-    return true;
+    flag = true;
   }
   else{
     clearerror(doctorInput);
-    return false;
+    
   }
   if(day.value.trim()==''){
     setError(day,"Select day");
-    return true;
+    flag = true;
+    
   }
   else{
     clearerror(day);
-    return false;
+    
   }
+  return flag
+}
+  function validation2(){
   if(Time.value=='Select Time'){
     setError(TimeInput,"Please select Time");
-    return true;
+    return true
     
   }
   else{
     clearerror(TimeInput);
-   return false;
+    return false
   }
-
 }
+
 
 
 
