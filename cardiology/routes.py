@@ -1,9 +1,11 @@
-from flask import render_template, redirect, url_for, Flask, request
+from pyexpat.errors import messages
+from flask import render_template, redirect, url_for, Flask, request, flash
 from flask_sqlalchemy import SQLAlchemy
-from cardiology.models import Doctors, Patients, Admins, Appointemets, Medical_records
+from cardiology.models import Doctors, Patients, Admins, Appointemets, Medical_records, masseages
 from cardiology import app, db
 from datetime import datetime
 
+doctors = Doctors.query.all()
 f = False
 p_user = 0
 day = 0
@@ -19,9 +21,9 @@ medicl_record = 0
 @app.route('/')
 @app.route('/patient')
 def patient_page():
-    global p_user,  f
+    global p_user, f
     f = False
-    
+    t = True
     p_user = Patients.query.filter_by(p_id=1).first()
     return render_template('patient.html', user=p_user)
 
@@ -37,8 +39,8 @@ def home_page():
 
 @app.route('/book_appointment',  methods=['POST', 'GET'])
 def book_page():
-    global p_user, f, doc, day
-    doctors = Doctors.query.all()
+    global p_user, f, doc, day, doctors
+    
     
     if request.method == 'POST': 
         if not f:
@@ -49,15 +51,17 @@ def book_page():
         if f :
             f =False
             hour = request.form['Time']
-            p_time = parse_time(day, hour)        
+            p_time = parse_time(day, hour)
+            
             appoint = Appointemets(p_id=p_user.p_id, p_name=p_user.p_name, d_name = doc.d_name, d_id = doc.d_id, appointemet=p_time)
             db.session.add(appoint)
             db.session.commit()
-            return render_template('booking.html', user=p_user, docs=doctors, flag=f , t=t)
+            
         else:
             f = True
-        
-    return render_template('booking.html', user=p_user, docs=doctors, flag=f , t=t)
+    
+
+    return render_template('booking.html', user=p_user, docs=doctors, flag=f )
 
 
 @app.route('/contact', methods=['POST', 'GET'])
@@ -66,10 +70,15 @@ def contact_page():
     f = False
    
     if request.method == 'POST':
-        c = request.form['c']
-        return render_template('contact.html', user=p_user)
+        _text = request.form['Message']
+        doc = Doctors.query.filter_by(d_id=request.form['doctors']).first()
+        messaege1 = masseages(p_id=p_user.p_id, p_name=p_user.p_name, d_id=doc.d_id,
+         d_name=doc.d_name, msessage=_text, msg_date=datetime.now())
+        db.session.add(messaege1)
+        db.session.commit()
+        
 
-    return render_template('contact.html', user=p_user)
+    return render_template('contact.html', user=p_user, doctors=doctors)
 
 
 @app.route('/medical_records')

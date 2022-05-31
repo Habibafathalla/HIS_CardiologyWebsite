@@ -1,6 +1,6 @@
 
 const form_1 = document.querySelector('#contact')
-const doctor = document.querySelector('#doctor')
+const doctor = document.querySelector('#doctors')
 const Input = document.getElementById("hf");
 const messageInput = document.getElementById("Message");
 
@@ -13,24 +13,23 @@ form_1.addEventListener('submit',(event)=>{
    })
    
    function validateForm_1(){
+    var flag = false
     if(doctor.value=='Select your doctor'){
       setError(Input,"please select your doctor");
-      return true;
-     
+      flag = true;
     }
     else{
       clearerror(Input);
-      return false;
-     
     }
     if(messageInput.value.trim()==''){
         setError(messageInput,"please enter a message");
-        return true;
-      
+        flag = true;
+        return flag
       }
       else{
         clearerror(messageInput);
-        return false;
+        return flag
+        
       }
   
   }

@@ -84,7 +84,7 @@
                 </li>
 
                 <li>
-                    <a href="https://calendar.google.com/calendar">
+                    <a href="https://calendar.google.com/calendar"  target="_blank">
                         <span class="icon">
                             <span title="Your appointments" style="font-size: x-large;">
                                 <ion-icon name="time"></ion-icon>
@@ -137,19 +137,20 @@
 		 <form action = "{{ url_for('contact_page') }}" method="POST" id="contact" class='input-group-register'>
 
             <div class="Header1">
-                <h2>Select your docrtor</h2>
+                <h2>Select your doctor</h2>
                 
             </div>
            <div>
             <div class="select" id="hf">       
                 <select name="doctors" id="doctors">
-                <option selected disabled >Select your doctor</option>
-                <option value="doctor1">doctor1</option>
-                <option value="doctor2" >doctor2 </option>
-                <option value="doctor3">doctor3</option>
-                <option value="doctor4">doctor4</option>
-                <option value="doctor5">doctor5</option>
-                <option value="doctor6">doctor6</option>
+                <option selected disabled value="Select your doctor">Select your doctor</option>
+                
+                {% for doctor in doctors %}
+
+                <option value="{{ doctor.d_id }}">{{ doctor.d_name }}</option>
+
+                {% endfor %}
+
                 </select>
             </div>
                <br><span></span>
@@ -164,7 +165,7 @@
                       <!-- message -->
                      
                     <div>
-                       <textarea id="Message"  rows="20" cols="70" name="c"></textarea>
+                       <textarea id="Message"  rows="20" cols="70" name="Message"></textarea>
                      
                        <span></span>
                     </div>
